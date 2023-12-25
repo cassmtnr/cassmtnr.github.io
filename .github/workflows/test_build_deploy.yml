@@ -6,6 +6,15 @@ on:
       - master
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+
+      - name: Lint 🧹
+        run: yarn lint
+
   test:
     runs-on: ubuntu-latest
     steps:
