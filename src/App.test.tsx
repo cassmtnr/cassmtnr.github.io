@@ -6,10 +6,6 @@ describe('App', () => {
   it('renders text', () => {
     render(<App />);
 
-    expect(
-      screen.getByText(
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur perspiciatis consequatur debitis beatae, adipisci aliquid laudantium.'
-      )
-    ).toBeVisible();
+    expect(screen.getByText('cassmtnr')).toBeVisible();
   });
 });
