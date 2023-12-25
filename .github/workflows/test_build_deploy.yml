@@ -49,7 +49,7 @@ jobs:
       - name: Build 🏗️
         run: yarn build
 
-      - name: Deploy to GH Pages Branch 🚀
+      - name: Push to branch 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.CI_CD_TOKEN }}
