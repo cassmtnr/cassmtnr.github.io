@@ -3,7 +3,7 @@ const App = () => {
     <>
       <div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+          Loarem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
           perspiciatis consequatur debitis beatae, adipisci aliquid laudantium.
         </p>
         <p>5678</p>
