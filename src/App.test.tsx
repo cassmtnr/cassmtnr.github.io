@@ -8,7 +8,7 @@ describe('App', () => {
 
     expect(
       screen.getByText(
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur perspiciatis consequatur debitis beatae, adipisci aliquid laudantium et eos nobis deleniti fuga nulla totam autem, mollitia error. Voluptatem facere impedit quisquam!'
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur perspiciatis consequatur debitis beatae, adipisci aliquid laudantium.'
       )
     ).toBeVisible();
   });
