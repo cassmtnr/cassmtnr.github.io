@@ -7,7 +7,7 @@ on:
 
 jobs:
   checkout:
-    setup:
+    steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
 
