@@ -16,7 +16,7 @@ jobs:
         run: |
           yarn
           yarn test
-  build-and-deploy:
+  build:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
