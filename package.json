@@ -1,5 +1,7 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "cassmtnr.github.io",
+  "homepage": "cassmtnr.github.io",
+  "base": "vite.config.mts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
