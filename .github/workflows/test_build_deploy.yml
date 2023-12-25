@@ -34,7 +34,7 @@ jobs:
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
-        env:
-          ACCESS_TOKEN: ${{ secrets.CI_CD_TOKEN }}
+        # env:
+        #   ACCESS_TOKEN: ${{ secrets.CI_CD_TOKEN }}
         with:
           folder: dist # The folder the action should deploy
