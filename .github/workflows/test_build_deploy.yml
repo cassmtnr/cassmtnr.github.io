@@ -6,18 +6,11 @@ on:
       - master
 
 jobs:
-  checkout:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
-
-  lint:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
-      # - name: Checkout 🛎️
-      #   uses: actions/checkout@master
 
       - name: Install 🔧
         run: yarn
@@ -29,8 +22,8 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout 🛎️
-      #   uses: actions/checkout@master
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
 
       - name: Install 🔧
         run: yarn
@@ -47,8 +40,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout 🛎️
-      #   uses: actions/checkout@master
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
 
       - name: Install 🔧
         run: yarn
