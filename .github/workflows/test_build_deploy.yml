@@ -7,8 +7,9 @@ on:
 
 jobs:
   checkout:
-    - name: Checkout 🛎️
-      uses: actions/checkout@master
+    setup:
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
 
   lint:
     needs: checkout
