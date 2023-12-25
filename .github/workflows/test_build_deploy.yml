@@ -58,6 +58,6 @@ jobs:
           path: ./dist
       - name: Deploy to GitHub Pages
         run: yarn deploy
-        with:
-          github_token: ${{ secrets.CI_CD_TOKEN }}
-          # publish_dir: ./dist
+        # with:
+        # github_token: ${{ secrets.CI_CD_TOKEN }}
+        # publish_dir: ./dist
