@@ -12,11 +12,7 @@ const App = () => {
       >
         cassmtnr
       </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores
-        iure corporis libero quas, possimus inventore eaque quo ut ea rerum sunt
-        assumenda, atque repellat molestiae aliquid! Incidunt, sunt.
-      </p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
   );
 };
