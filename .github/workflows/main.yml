@@ -1,4 +1,4 @@
-name: Test, Build and Deploy
+name: test-build-deploy
 
 on:
   push:
@@ -31,10 +31,10 @@ jobs:
       - name: Test 🧪
         run: yarn test
 
-      # - name: Upload Test Coverage to Codecov 📊
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     token: ${{ secrets.CI_CD_TOKEN }}
+      - name: Upload Test Coverage to Codecov 📊
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   build:
     needs: test
