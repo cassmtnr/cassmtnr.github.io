@@ -6,6 +6,6 @@ describe('App', () => {
   it('renders text', () => {
     render(<App />);
 
-    expect(screen.getByText('cassmtnr')).toBeVisible();
+    expect(screen.getByText('nope')).toBeVisible();
   });
 });
