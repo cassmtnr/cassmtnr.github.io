@@ -1,4 +1,4 @@
-name: test-build-deploy
+name: Test, Build & Deploy
 
 on:
   push:
@@ -6,59 +6,31 @@ on:
       - master
 
 jobs:
-  lint:
+  test-build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
 
-      - name: Install 🔧
-        run: yarn
-
-      - name: Lint 🧹
-        run: yarn lint
-
-  test:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@master
-
-      - name: Install 🔧
-        run: yarn
-
-      - name: Test 🧪
-        run: yarn coverage
-
-      - name: Upload Test Coverage to Codecov 📊
-        uses: codecov/codecov-action@v4  # Update to v4 or @latest
+      - name: Setup Bun 🥟
+        uses: oven-sh/setup-bun@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          bun-version: latest
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@master
+      - name: Install Dependencies 🔧
+        run: bun install
 
-      - name: Install 🔧
-        run: yarn
+      - name: Run Tests 🧪
+        run: bun test
 
       - name: Build 🏗️
-        run: yarn build
+        run: bun run build
 
-      # - name: Deploy to GitHub Pages
-      #   uses: crazy-max/ghaction-github-pages@v4
-      #   with:
-      #     target_branch: gh-pages
-      #     build_dir: dist
-      #   env:
-      #     github_token: ${{ secrets.CI_CD_TOKEN }}
+      - name: Check Size 📏
+        run: bun run size
 
-      - name: Push to branch 🚀
-        uses: peaceiris/actions-gh-pages@v4  # Update to v4 or @latest
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.CI_CD_TOKEN }}
-          publish_dir: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

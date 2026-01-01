@@ -1,41 +1,60 @@
-## Personal GitHub Page
+# Personal GitHub Page
 
-This is my personal GitHub page, built with Vite and React.
+Ultra-minimal personal GitHub page built with vanilla JavaScript and Bun.
+
+**Build size: ~1.3 KB** (target: < 10 KB)
+
+## Tech Stack
+
+- **Vanilla JavaScript** - No frameworks
+- **Bun** - Build tool, bundler, and test runner
+- **GitHub Actions** - CI/CD with automated testing and deployment
 
 ## Getting Started
 
-To get started, follow these steps:
-
-1. Clone the repository:
-
 ```bash
-git clone https://github.com/cassmtnr/cassmtnr.github.io.git
+# Install dependencies
+bun install
+
+# Start dev server
+bun run dev
+
+# Run tests
+bun test
+
+# Build for production
+bun run build
+
+# Check build size
+bun run size
 ```
 
-2. Install the dependencies:
+## Project Structure
 
-```bash
-yarn
+```
+├── src/
+│   ├── index.html    # HTML template
+│   ├── styles.css    # CSS styles
+│   └── main.js       # JavaScript
+├── scripts/
+│   ├── build.ts      # Build script (inlines & minifies)
+│   ├── dev.ts        # Dev server
+│   └── check-size.ts # Size validation
+├── tests/
+│   ├── build.test.ts # Build validation tests
+│   └── source.test.ts # Source file tests
+└── dist/             # Build output
 ```
 
-3. Start the development server:
+## Build Process
 
-```bash
-yarn dev
-```
+The build script:
+1. Reads HTML, CSS, and JS source files
+2. Minifies CSS and JS using Bun's bundler
+3. Inlines all assets into a single HTML file
+4. Validates the output is under 10 KB
+5. Outputs to `dist/index.html`
 
-4. Open your browser and navigate to `http://localhost:3000`.
+## License
 
-## Deployment
-
-To deploy the app, run the following command:
-
-```bash
-yarn deploy
-```
-
-This will build the app and deploy it to the `dist` folder.
-
-### License
-
-This project is licensed under the MIT License.
+MIT
