@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Cassiano Montenegro - Software Developer">
-  <title>Cassiano Montenegro</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main>
-    <h1>Cassiano Montenegro</h1>
-    <p class="role">Software Developer</p>
-    <nav>
-      <a href="https://github.com/cassmtnr" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/cassmtnr" target="_blank" rel="noopener">LinkedIn</a>
-    </nav>
-  </main>
-  <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="cassmtnr" />
+    <title>cassmtnr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <svg class="logo" viewBox="0 0 1700 320" aria-label="cassmtnr">
+        <defs>
+          <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#e0d4f0">
+              <animate
+                attributeName="stop-color"
+                values="#e0d4f0;#fff;#d4eef0;#f0e0d4;#e0d4f0"
+                dur="4s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="50%" stop-color="#fff">
+              <animate
+                attributeName="stop-color"
+                values="#fff;#d4eef0;#f0e0d4;#e0d4f0;#fff"
+                dur="4s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="100%" stop-color="#d4eef0">
+              <animate
+                attributeName="stop-color"
+                values="#d4eef0;#f0e0d4;#e0d4f0;#fff;#d4eef0"
+                dur="4s"
+                repeatCount="indefinite"
+              />
+            </stop>
+          </linearGradient>
+          <filter id="depth">
+            <feDropShadow
+              dx="0"
+              dy="2"
+              stdDeviation="2"
+              flood-color="#000"
+              flood-opacity="0.5"
+            />
+            <feDropShadow
+              dx="0"
+              dy="4"
+              stdDeviation="4"
+              flood-color="#000"
+              flood-opacity="0.3"
+            />
+          </filter>
+        </defs>
+        <text
+          x="50%"
+          y="230"
+          text-anchor="middle"
+          fill="url(#glow)"
+          filter="url(#depth)"
+        >
+          cassmtnr
+        </text>
+      </svg>
+      <nav>
+        <a href="https://github.com/cassmtnr" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </main>
+    <script src="main.js"></script>
+  </body>
 </html>

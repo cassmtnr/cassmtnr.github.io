@@ -2,7 +2,7 @@ const server = Bun.serve({
   port: 3000,
   async fetch(req) {
     const url = new URL(req.url);
-    let path = url.pathname === "/" ? "/index.html" : url.pathname;
+    const path = url.pathname === "/" ? "/index.html" : url.pathname;
 
     const filePath = `./src${path}`;
     const file = Bun.file(filePath);

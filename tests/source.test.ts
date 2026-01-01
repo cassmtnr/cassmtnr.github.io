@@ -1,6 +1,6 @@
-import { describe, test, expect } from "bun:test";
-import { existsSync } from "fs";
-import { readFile } from "fs/promises";
+import { describe, expect, test } from "bun:test";
+import { existsSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 
 describe("Source Files", () => {
   test("src/index.html exists", () => {

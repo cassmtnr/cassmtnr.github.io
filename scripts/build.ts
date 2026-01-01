@@ -1,5 +1,5 @@
-import { readFile, writeFile, mkdir } from "fs/promises";
-import { existsSync } from "fs";
+import { existsSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const SRC_DIR = "./src";
 const DIST_DIR = "./dist";
@@ -14,7 +14,7 @@ async function minifyCSS(css: string): Promise<string> {
     .trim();
 }
 
-async function minifyJS(js: string): Promise<string> {
+async function minifyJS(_js: string): Promise<string> {
   // Use Bun's bundler for JS minification
   const result = await Bun.build({
     entrypoints: [`${SRC_DIR}/main.js`],
@@ -23,7 +23,7 @@ async function minifyJS(js: string): Promise<string> {
   });
 
   if (!result.success) {
-    throw new Error("JS minification failed: " + result.logs.join("\n"));
+    throw new Error(`JS minification failed: ${result.logs.join("\n")}`);
   }
 
   return await result.outputs[0].text();
@@ -62,12 +62,12 @@ async function build() {
   // Inline CSS and JS into HTML
   let html = htmlTemplate
     .replace(
-      '<link rel="stylesheet" href="styles.css">',
-      `<style>${minifiedCSS}</style>`
+      /<link rel="stylesheet" href="styles.css"\s*\/?>/,
+      `<style>${minifiedCSS}</style>`,
     )
     .replace(
-      '<script src="main.js"></script>',
-      `<script>${minifiedJS}</script>`
+      /<script src="main.js"><\/script>/,
+      `<script>${minifiedJS}</script>`,
     );
 
   // Minify final HTML

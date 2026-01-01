@@ -1,4 +1,4 @@
-import { stat } from "fs/promises";
+import { stat } from "node:fs/promises";
 
 const MAX_SIZE_BYTES = 10240; // 10kb
 
@@ -15,9 +15,13 @@ async function checkSize() {
     }
 
     console.log(`✅ Size is under ${MAX_SIZE_BYTES / 1024}KB limit.`);
-    console.log(`💡 Remaining budget: ${((MAX_SIZE_BYTES - size) / 1024).toFixed(2)} KB`);
-  } catch (err) {
-    console.error("❌ Could not read dist/index.html. Run 'bun run build' first.");
+    console.log(
+      `💡 Remaining budget: ${((MAX_SIZE_BYTES - size) / 1024).toFixed(2)} KB`,
+    );
+  } catch (_err) {
+    console.error(
+      "❌ Could not read dist/index.html. Run 'bun run build' first.",
+    );
     process.exit(1);
   }
 }

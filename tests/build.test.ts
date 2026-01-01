@@ -1,6 +1,6 @@
-import { describe, test, expect, beforeAll } from "bun:test";
-import { readFile, stat } from "fs/promises";
-import { existsSync } from "fs";
+import { beforeAll, describe, expect, test } from "bun:test";
+import { existsSync } from "node:fs";
+import { readFile, stat } from "node:fs/promises";
 import { $ } from "bun";
 
 const MAX_SIZE_BYTES = 10240; // 10kb
@@ -45,8 +45,8 @@ describe("Output Validation", () => {
     expect(html).toMatch(/<title>.+<\/title>/);
   });
 
-  test("CSS is inlined (no external stylesheet link)", () => {
-    expect(html).not.toContain('rel="stylesheet"');
+  test("CSS is inlined (no local stylesheet link)", () => {
+    expect(html).not.toContain('href="styles.css"');
     expect(html).toContain("<style>");
   });
 
@@ -67,7 +67,9 @@ describe("Size Budget", () => {
     const { size } = await stat(DIST_FILE);
     const remaining = MAX_SIZE_BYTES - size;
     console.log(`\n📏 Build size: ${size} bytes`);
-    console.log(`💡 Remaining budget: ${remaining} bytes (${(remaining / 1024).toFixed(2)} KB)`);
+    console.log(
+      `💡 Remaining budget: ${remaining} bytes (${(remaining / 1024).toFixed(2)} KB)`,
+    );
     expect(remaining).toBeGreaterThan(0);
   });
 });
