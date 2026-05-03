@@ -42,7 +42,13 @@ a {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
 a:hover {
   color: #fff;
+}
+.icon {
+  width: 3.2rem;
+  height: 3.2rem;
 }
