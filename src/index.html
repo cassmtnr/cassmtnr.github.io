@@ -14,33 +14,55 @@
     <main>
       <svg class="logo" viewBox="0 0 1700 320" aria-label="cassmtnr">
         <defs>
-          <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#e0d4f0">
-              <animate
-                attributeName="stop-color"
-                values="#e0d4f0;#fff;#d4eef0;#f0e0d4;#e0d4f0"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="50%" stop-color="#fff">
-              <animate
-                attributeName="stop-color"
-                values="#fff;#d4eef0;#f0e0d4;#e0d4f0;#fff"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" stop-color="#d4eef0">
-              <animate
-                attributeName="stop-color"
-                values="#d4eef0;#f0e0d4;#e0d4f0;#fff;#d4eef0"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </stop>
+          <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d8d4e8" />
+            <stop offset="25%" stop-color="#e8eef2" />
+            <stop offset="50%" stop-color="#ffffff" />
+            <stop offset="75%" stop-color="#dbe6e8" />
+            <stop offset="100%" stop-color="#d8d4e8" />
+            <animateTransform
+              attributeName="gradientTransform"
+              type="translate"
+              from="-1 0"
+              to="1 0"
+              dur="3.5s"
+              repeatCount="indefinite"
+            />
           </linearGradient>
-          <filter id="depth">
+          <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0" />
+            <stop offset="45%" stop-color="#fff" stop-opacity="0" />
+            <stop offset="50%" stop-color="#fff" stop-opacity="0.95" />
+            <stop offset="55%" stop-color="#fff" stop-opacity="0" />
+            <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+            <animateTransform
+              attributeName="gradientTransform"
+              type="translate"
+              from="-1.2 0"
+              to="1.2 0"
+              dur="5s"
+              repeatCount="indefinite"
+            />
+          </linearGradient>
+          <radialGradient
+            id="reflection"
+            cx="850"
+            cy="160"
+            r="260"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+            <stop offset="20%" stop-color="#ffd6a5" stop-opacity="0.9" />
+            <stop offset="45%" stop-color="#a0e7e5" stop-opacity="0.7" />
+            <stop offset="70%" stop-color="#c4b5fd" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+          </radialGradient>
+          <filter id="depth" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
             <feDropShadow
               dx="0"
               dy="2"
@@ -58,11 +80,51 @@
           </filter>
         </defs>
         <text
+          class="holo-base"
           x="50%"
           y="230"
           text-anchor="middle"
-          fill="url(#glow)"
+          fill="#9ec5cc"
+          opacity="0.3"
+          transform="translate(-2 0)"
+        >
+          cassmtnr
+        </text>
+        <text
+          class="holo-base"
+          x="50%"
+          y="230"
+          text-anchor="middle"
+          fill="#c8b8d4"
+          opacity="0.3"
+          transform="translate(2 0)"
+        >
+          cassmtnr
+        </text>
+        <text
+          x="50%"
+          y="230"
+          text-anchor="middle"
+          fill="url(#holo)"
           filter="url(#depth)"
+        >
+          cassmtnr
+        </text>
+        <text
+          x="50%"
+          y="230"
+          text-anchor="middle"
+          fill="url(#sheen)"
+          style="mix-blend-mode: overlay;"
+        >
+          cassmtnr
+        </text>
+        <text
+          class="holo-reflection"
+          x="50%"
+          y="230"
+          text-anchor="middle"
+          fill="url(#reflection)"
         >
           cassmtnr
         </text>

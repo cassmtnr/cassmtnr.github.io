@@ -23,6 +23,7 @@ main {
   width: 80vw;
   height: auto;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 .logo text {
   font-family: 'Spectral', Georgia, serif;
@@ -30,6 +31,19 @@ main {
   font-weight: 700;
   letter-spacing: 0.02em;
   font-style: italic;
+}
+.logo text.holo-base {
+  filter: blur(2px);
+  mix-blend-mode: screen;
+}
+.logo text.holo-reflection {
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.logo:hover text.holo-reflection {
+  opacity: 1;
 }
 nav {
   display: flex;
